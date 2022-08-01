@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: workflows/wf_restore_app_backup.html 
+keywords:  
+summary:  
+---
+= 从备份还原受管应用程序
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过从备份创建新应用程序来还原受管应用程序。
+
+
+
+=== 1. 选择要还原的受管应用程序
+
+执行工作流 link:wf_list_man_apps.html["列出受管应用程序"] 并选择要克隆的应用程序。用于克隆应用程序的 REST 调用需要多个资源值。
+
+
+
+=== 2. 选择要使用的备份
+
+执行工作流 link:wf_list_backups.html["列出备份"] 并选择要使用的备份。
+
+
+
+=== 3. 还原应用程序
+
+执行以下 REST API 调用。您必须提供备份（如下所示）或快照的 ID 。
+
+[cols="25,75"]
+|===
+| HTTP 方法 | 路径 
+
+
+| PUT | /account/ ｛ accountID ｝ /K8s/v1/managedApps/ ｛ appID ｝ 
+|===
+
+
+===== 其他输入参数
+
+除了所有 REST API 调用通用的参数之外，此步骤的 curl 示例还使用以下参数。
+
+[cols="25,10,10,55"]
+|===
+| 参数 | Type | Required | Description 
+
+
+| JSON | body | 是的。 | 提供克隆应用程序的参数。请参见以下示例。 
+|===
+
+
+===== JSON 输入示例
+
+[source, json]
+----
+{
+  "type": "application/astra-managedApp",
+  "version": "1.2",
+  "backupID": "e24515bd-a28e-4b28-b832-f3c74dbf32fb"
+}
+----
+
+
+===== curl 示例：从备份原位还原应用程序
+
+[source, curl]
+----
+curl --location -i --request PUT 'https://astra.netapp.io/accounts/<ACCOUNT_ID>/k8s/v1/managedApps/<APP_ID>' --header 'Content-Type: application/astra-managedApp+json' --header '*/*' --header 'ForceUpdate: true' --header 'Authorization: Bearer <API_TOKEN>' --d @JSONinput
+----
