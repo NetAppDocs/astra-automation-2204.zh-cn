@@ -838,7 +838,6 @@
   <block id="6763d4dfc2fa6c04b08ba1e1b7751f5f" category="list-text"><block ref="6763d4dfc2fa6c04b08ba1e1b7751f5f" category="inline-link-rx"></block></block>
   <block id="ba793efaa4293b35388d140ee9308a68" category="paragraph">Web 和 Internet 标准的权威来源，作为一组编号唯一的 RFC 文档进行维护。</block>
   <block id="c6c51849eeb1ac322baa3a99b7cd7e43" category="summary">这是 Astra Automation 的总结。</block>
-  <block id="1a0ca7f0a5aea880c24d544b4655d6ed" category="doc">Astra Control Automation 文档</block>
   <block id="5050b96b055cfded21a1b69b78b627c2" category="sidebar">Astra Control Automation 22.04文档</block>
   <block id="93168a8084b3e838d2932c4734bd234e" category="sidebar">早期版本</block>
   <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">入门</block>
@@ -871,4 +870,5 @@
   <block id="36b64aad8a26246fe3ad4116a2b6f289" category="sidebar">诊断</block>
   <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="sidebar">发行说明</block>
   <block id="33871b6190a8d5adbe8b15282054766c" category="sidebar">新增功能</block>
+  <block id="798161428a705ba47c31cc8ace9316e3" category="doc">Astra Control Automation 22.04文档</block>
 </blocks>
