@@ -25,39 +25,42 @@
   <!-- Elastic Search -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
 
-  <!-- Controls AsciiDoctor Admonition Blocks -->
-  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-automation-2204/css/font-awesome.min.css">
-
-  <!-- Controls the shadow effect for search dropdown menu -->
-  <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/boxshadowproperties.css">
-
-  <!-- NetApp CSS controls the technical content -->
-  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-automation-2204/css/netapp.css">
-
-  <!-- WWW CSS Content -->
-  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-automation-2204/css/www-luci-dotcom.min.css">
-  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-automation-2204/css/www-netapp-dotcom.css">
-  <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/www-netapp-library-critical.min.css" media="all" >
-  <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/www-netapp-library-non-critical.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/www-netapp-library-global-header-footer.min.css">
-
-  <!-- NetApp IE Customizations -->
-  <link rel="stylesheet" href='/zh-cn/astra-automation-2204/css/na-utility.css' type='text/css'>
-  <link rel="stylesheet" href='/zh-cn/astra-automation-2204/css/na-sidebar.css' type='text/css'>
-  <link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/clouddocs.css' type='text/css'>
-  <link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/custom-dropdown.css' type='text/css'>
-  <link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/na-pagenav.css' type='text/css'>
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/zh-cn/astra-automation-2204/css/netappdocs.css">
 
   
   <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/landing-page.css" type="text/css">
   <link rel="stylesheet" href="/zh-cn/astra-automation-2204/css/tabbed-blocks.css" type="text/css">
   <!-- Canonical url -->
   <link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
-    if (document.location.hostname === "docs.netapp.com") {
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
       var head = document.getElementsByTagName('head')[0];
       var onetrustConsent = document.createElement("script");
       onetrustConsent.type = "text/javascript";
-      onetrustConsent.src = "https://cdn.cookielaw.org/consent/72570c5c-fe30-465f-b0e0-b77f7fb4ae34/OtAutoBlock.js";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
       head.appendChild(onetrustConsent);
 
       var onetrustScript = document.createElement("script");
@@ -65,40 +68,17 @@
       onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
       onetrustScript.charset = "UTF-8";
       onetrustScript.dataset.documentLanguage = "true";
-      onetrustScript.dataset.domainScript = "72570c5c-fe30-465f-b0e0-b77f7fb4ae34";
+      onetrustScript.dataset.domainScript = consentId;
       head.appendChild(onetrustScript);
-    }
-
-    function OptanonWrapper() { }
-
-    if (document.location.hostname === "docs.netapp.com") {
-      var adobe = document.createElement("script");
-      adobe.type = "text/plain";
-      adobe.className = "optanon-category-C0002";
-      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/launch-e9ff3acac59f.min.js";
-      head.appendChild(adobe);
-
-      var google = document.createElement("script");
-      google.type = "text/plain";
-      google.className = "optanon-category-C0002";
-      google.src = "https://www.googletagmanager.com/gtag/js?id=UA-81697994-3";
-      head.appendChild(google);
-
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-81697994-3');
-    }
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
   </script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 
   <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/astra-automation-2204/js/na-search.js'></script><script src='/zh-cn/astra-automation-2204/js/na-pagenav.js'></script><link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/prism.css' type='text/css'>
-  <link rel='stylesheet' href='/zh-cn/astra-automation-2204/css/prism-netapp.css' type='text/css'>
-
-
-  <script src='/zh-cn/astra-automation-2204/js/na-utility.js'></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/zh-cn/astra-automation-2204/js/na-search.js'></script><script src='/zh-cn/astra-automation-2204/js/na-pagenav.js'></script><script src='/zh-cn/astra-automation-2204/js/na-utility.js'></script>
   <script src='/zh-cn/astra-automation-2204/js/clouddocs.js'></script>
   <script src='/zh-cn/astra-automation-2204/js/jquery.navgoco.min.js'></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -139,6 +119,17 @@
               $("#mysidebar").navgoco('toggle', true);
           });
 
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/zh-cn/astra-automation-2204"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
       });
 
   </script>
@@ -169,7 +160,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-automation-2204/issues/new?body=Page%3A%20[开始之前](https://docs.netapp.com/zh-cn/astra-automation-2204/workflows_infra/workflows_infra_before.html)" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-automation-2204/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-automation-2204/blob/main/workflows_infra/workflows_infra_before.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-automation-2204/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-automation-2204/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-automation-2204/issues/new?body=Page%3A%20[开始之前](https://docs.netapp.com/zh-cn/astra-automation-2204/workflows_infra/workflows_infra_before.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-automation-2204/images/discuss-sm.svg" alt="" class="github-icon" />请求文档变更</a><a target="_blank" href="https://github.com/NetAppDocs/astra-automation-2204/blob/main/workflows_infra/workflows_infra_before.adoc" class="page-nav-contribute-link" role="button"><img src="/zh-cn/astra-automation-2204/images/edit-sm.svg" alt="" class="github-icon" />在 GitHub 上编辑</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/zh-cn/astra-automation-2204/images/article-sm.svg" alt="" class="github-icon" />提供者指南</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">在此页面上</div>
@@ -253,6 +244,8 @@
       </div>
 
       
+      
+      
       <div class="search-property-bar">
         <div id="search-demo-container" class="searchbox n-property-bar__search">
           <div id="react-search" 
@@ -299,6 +292,10 @@
           <a href="https://docs.netapp.com/zh-tw/astra-automation-2204/workflows_infra/workflows_infra_before.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
         </li><li>
           <a href="https://docs.netapp.com/ko-kr/astra-automation-2204/workflows_infra/workflows_infra_before.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/astra-automation-2204/workflows_infra/workflows_infra_before.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/astra-automation-2204/workflows_infra/workflows_infra_before.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
         </li></ul>
     </div><!-- End Language Selector -->
 
@@ -341,6 +338,7 @@
   <!-- Sidebar Column -->
   
   <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/zh-cn/astra-automation-2204/images/collapse.png" alt="折叠导航面板"></button>
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
     <img src="/zh-cn/astra-automation-2204/images/pdf.png" alt="" width="16" height="16"/>可用的 PDF<span>
@@ -858,151 +856,492 @@
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
 </script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/index.html">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Astra Control Automation 22.04文档"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/index.html">
         Astra Control Automation 22.04文档
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="发行说明"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 发行说明</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/about.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="关于此版本"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/about.html">
         关于此版本
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/whats_new.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="新增功能"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/whats_new.html">
         新增功能
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/known_issues.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="已知问题"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rn/known_issues.html">
         已知问题
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/intro/introduction.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="简介"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/intro/introduction.html">
         简介
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="入门"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 入门</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/before_get_started.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="开始之前"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/before_get_started.html">
         开始之前
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/get_api_token.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="获取 API 令牌"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/get_api_token.html">
         获取 API 令牌
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/hello_world.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="大家好"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/hello_world.html">
         大家好
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/prepare_to_use_workflows.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="准备使用这些工作流"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/prepare_to_use_workflows.html">
         准备使用这些工作流
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/kubernetes_concepts.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="基本 Kubernetes 概念"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/get-started/kubernetes_concepts.html">
         基本 Kubernetes 概念
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="核心 REST 实施"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 核心 REST 实施</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/rest_web_services.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="REST Web 服务"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/rest_web_services.html">
         REST Web 服务
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/resources_collections.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="资源和集合"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/resources_collections.html">
         资源和集合
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/http_details.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="HTTP 详细信息"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/http_details.html">
         HTTP 详细信息
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/url_format.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="URL 格式"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/rest-core/url_format.html">
         URL 格式
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/endpoints/resources.html">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Resources"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/endpoints/resources.html">
         Resources
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="其他使用注意事项"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 其他使用注意事项</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/rbac.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="RBAC 安全性"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/rbac.html">
         RBAC 安全性
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/work_with_collections.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用收集"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/work_with_collections.html">
         使用收集
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/diagnostics_support.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="诊断"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/diagnostics_support.html">
         诊断
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/revoke_token.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="撤消 API 令牌"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/additional/revoke_token.html">
         撤消 API 令牌
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="基础架构工作流"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 基础架构工作流</div>
       </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/workflows_infra_before.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="开始之前"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/workflows_infra_before.html">
         开始之前
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="身份和访问"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 身份和访问</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_users.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出用户"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_users.html">
         列出用户
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存储分段"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 存储分段</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_buckets.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出分段"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_buckets.html">
         列出分段
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="存储"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 存储</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_storage_backends.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出存储后端"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_storage_backends.html">
         列出存储后端
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="集群"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 集群</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_man_clusters.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出受管集群"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows_infra/wf_list_man_clusters.html">
         列出受管集群
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理工作流"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 管理工作流</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/workflows_before.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="开始之前"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/workflows_before.html">
         开始之前
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="应用程序控制"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 应用程序控制</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_unman_apps.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出非受管应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_unman_apps.html">
         列出非受管应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_man_apps.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出受管应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_man_apps.html">
         列出受管应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_get_man_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="获取托管应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_get_man_app.html">
         获取托管应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_manage_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="管理应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_manage_app.html">
         管理应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_unmanage_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="取消管理应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_unmanage_app.html">
         取消管理应用程序
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="应用程序保护"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 应用程序保护</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_snapshots.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出快照"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_snapshots.html">
         列出快照
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_backups.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出备份"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_backups.html">
         列出备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_create_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="创建快照"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_create_snapshot.html">
         创建快照
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_create_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="创建备份"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_create_backup.html">
         创建备份
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="删除快照"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_snapshot.html">
         删除快照
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="删除备份"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_backup.html">
         删除备份
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="克隆和还原应用程序"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 克隆和还原应用程序</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="克隆应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app.html">
         克隆应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app_snapshot.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="从快照克隆应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app_snapshot.html">
         从快照克隆应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="从备份克隆应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_clone_app_backup.html">
         从备份克隆应用程序
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_restore_app_backup.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="从备份还原应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_restore_app_backup.html">
         从备份还原应用程序
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="支持"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 支持</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_notifications.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出通知"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_list_notifications.html">
         列出通知
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_failed_app.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="删除失败的应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/workflows/wf_delete_failed_app.html">
         删除失败的应用程序
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="使用 Python"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 使用 Python</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/astra_toolkits.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="NetApp Astra Control Python SDK"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/astra_toolkits.html">
         NetApp Astra Control Python SDK
-      </a></li><li class="subfolders "><a href="#">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="原生 Python"
+      data-li-level="2" 
+      class="subfolders "
+    ><a href="#">
         <div class="na-navbar-padding"> 原生 Python</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/python_before.html">
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="开始之前"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/python_before.html">
         开始之前
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/py_list_man_apps.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="列出受管应用程序"
+      data-li-level="3#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/python/py_list_man_apps.html">
         列出受管应用程序
-      </a></li></ul></li></ul></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/reference/api_reference.html">
+      </a></li></ul></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="API 参考"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/reference/api_reference.html">
         API 参考
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/information/additional_resources.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="其他资源"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/information/additional_resources.html">
         其他资源
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/aa-earlier-versions.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="早期版本"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/aa-earlier-versions.html">
         早期版本
-      </a></li><li class=" "><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/legal-notices.html">
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="法律声明"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/zh-cn/astra-automation-2204/legal-notices.html">
         法律声明
       </a></li></ul>
 </div>
@@ -1015,14 +1354,16 @@
 </script>
 <!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
 <script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
 
 
   </div>
   
 
   <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
-    <!-- Begin of page container --><article class="page-content">
+    <!-- Begin of page container --><article class="page-content" id="main">
       <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/zh-cn/astra-automation-2204/images/expand.png" alt="展开导航面板"></button>
   <div class="ie-menu">
     <div class="n-breadcrumb">
       <ul class="n-breadcrumb__list">
@@ -1181,11 +1522,7 @@ NetApp 可以随时扩展和改进这些工作流，因此您应定期查看这�
         <div class="n-footer__copyright">
           <ul class="n-footer__copyright-list">
             <li class="n-footer__copyright-link">
-              <span class="n-footer__fine-print">想就我们的网站提供反馈?</span>
-              <a target="_self" href="javascript:netapp_mailto()">请告诉我们</a>
-            </li>
-            <li class="n-footer__copyright-link">
-              <a href="https://docs.netapp.com/zh-cn/announcements/">通知</a>
+              <a target="_self" href="javascript:netapp_mailto()">发送有关此页面的反馈</a>
             </li>
           </ul>
         </div>
